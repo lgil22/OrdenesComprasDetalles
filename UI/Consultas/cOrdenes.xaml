@@ -1,12 +1,31 @@
-﻿<Window x:Class="OrdenesCompras.UI.Consultas.cOrdenes"
+﻿<Window x:Name="ConsultaOrdenes" x:Class="OrdenesCompras.UI.Consultas.cOrdenes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrdenesCompras.UI.Consultas"
         mc:Ignorable="d"
-        Title="cOrdenes" Height="450" Width="800">
+        Title="Consulta Ordenes" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         
+        <StackPanel Grid.Column="1">
+            <Label Content="Desde"/>
+            <DatePicker x:Name="DesdeDatePicker" Width="181" Margin="0,0,625,0"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="2" Width="200">
+            <Label Content="Hasta"/>
+            <DatePicker x:Name="HastaDatePicker" Width="144" Margin="0,0,55,0"/>
+        </StackPanel>
+
     </Grid>
 </Window>
