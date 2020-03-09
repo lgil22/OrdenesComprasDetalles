@@ -47,24 +47,7 @@ namespace OrdenesCompras.BLL
                 }
                 db.Entry(orden).State = EntityState.Modified;
                 paso = (db.SaveChanges() > 0);
-                //var anterior = Buscar(orden.OrdenId);
-                //foreach(var item in anterior.Detalles)
-                //{
-                //    if(!orden.Detalles.Exists(x => x.id == item.id))
-                //    {
-                //        db.Entry(item).State = EntityState.Deleted;
-                //    }
-                //}
-
-                //foreach (var item in orden.Detalles)
-                //{
-                //    var estado = item.id > 0 ? EntityState.Modified : EntityState.Added;
-                //    db.Entry(item).State = estado;
-                //}
-
-                //Idicar que se esta modificando el encabezado
-                //db.Entry(orden).State = EntityState.Modified;
-                //paso = db.SaveChanges() > 0;
+               
             }
             catch (Exception)
             {

@@ -13,7 +13,7 @@ namespace OrdenesCompras.Entidades
         public string Nombres { get; set; }
         public string Cedula { get; set; }
         public string Telefono { get; set; }
-        public ICollection<Orden> Orden { get; set; }
+  
         public DateTime FechaNacimiento { get; set; }
 
         public Cliente()

@@ -9,7 +9,7 @@ using OrdenesCompras.DAL;
 namespace OrdenesCompras.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200309185216_Inicial")]
+    [Migration("20200309211428_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,8 +61,6 @@ namespace OrdenesCompras.Migrations
 
                     b.HasKey("OrdenId");
 
-                    b.HasIndex("ClienteId");
-
                     b.ToTable("Orden");
                 });
 
@@ -106,15 +104,6 @@ namespace OrdenesCompras.Migrations
                     b.HasKey("ProductoId");
 
                     b.ToTable("Producto");
-                });
-
-            modelBuilder.Entity("OrdenesCompras.Entidades.Orden", b =>
-                {
-                    b.HasOne("OrdenesCompras.Entidades.Cliente", null)
-                        .WithMany("Orden")
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("OrdenesCompras.Entidades.OrdenDetalles", b =>

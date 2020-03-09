@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrdenesCompras.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace OrdenesCompras
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void MenuRegistros_Click(object sender, RoutedEventArgs e)
+        {
+            rOrdenes ords = new rOrdenes();
+            ords.Show();
         }
     }
 }

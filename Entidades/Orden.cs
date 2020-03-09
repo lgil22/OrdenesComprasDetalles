@@ -11,15 +11,15 @@ namespace OrdenesCompras.Entidades
         [Key]
         public int OrdenId { get; set; }
 
-        [ForeignKey("Cliente")]
+     //   [ForeignKey("Cliente")]
         public int ClienteId { get; set; }
 
-        [ForeignKey("Producto")]
+      //  [ForeignKey("Producto")]
         public DateTime OrdenFecha { get; set; }
         public string  Sede { get; set; }
         public decimal Total { get; set; }
 
-        [ForeignKey("OrdenId")]
+      //  [ForeignKey("OrdenId")]
 
         public virtual List<OrdenDetalles> Detalles { get; set; } = new List<OrdenDetalles>();
 

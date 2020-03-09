@@ -59,8 +59,6 @@ namespace OrdenesCompras.Migrations
 
                     b.HasKey("OrdenId");
 
-                    b.HasIndex("ClienteId");
-
                     b.ToTable("Orden");
                 });
 
@@ -104,15 +102,6 @@ namespace OrdenesCompras.Migrations
                     b.HasKey("ProductoId");
 
                     b.ToTable("Producto");
-                });
-
-            modelBuilder.Entity("OrdenesCompras.Entidades.Orden", b =>
-                {
-                    b.HasOne("OrdenesCompras.Entidades.Cliente", null)
-                        .WithMany("Orden")
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("OrdenesCompras.Entidades.OrdenDetalles", b =>

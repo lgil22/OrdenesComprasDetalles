@@ -100,7 +100,7 @@ namespace OrdenesCompras.BLL
             return producto;
         }
 
-        public static bool RestarInventario(int id, int cantidad)
+        public static bool CalcInventario(int id, int cantidad)
         {
             bool paso = false;
             Contexto db = new Contexto();

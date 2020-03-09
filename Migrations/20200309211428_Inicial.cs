@@ -24,21 +24,6 @@ namespace OrdenesCompras.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Producto",
-                columns: table => new
-                {
-                    ProductoId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Descripcion = table.Column<string>(nullable: true),
-                    Precio = table.Column<decimal>(nullable: false),
-                    Inventario = table.Column<decimal>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Producto", x => x.ProductoId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Orden",
                 columns: table => new
                 {
@@ -52,12 +37,21 @@ namespace OrdenesCompras.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orden", x => x.OrdenId);
-                    table.ForeignKey(
-                        name: "FK_Orden_Cliente_ClienteId",
-                        column: x => x.ClienteId,
-                        principalTable: "Cliente",
-                        principalColumn: "ClienteId",
-                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Producto",
+                columns: table => new
+                {
+                    ProductoId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Descripcion = table.Column<string>(nullable: true),
+                    Precio = table.Column<decimal>(nullable: false),
+                    Inventario = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Producto", x => x.ProductoId);
                 });
 
             migrationBuilder.CreateTable(
@@ -82,11 +76,6 @@ namespace OrdenesCompras.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orden_ClienteId",
-                table: "Orden",
-                column: "ClienteId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_OrdenDetalles_OrdenId",
                 table: "OrdenDetalles",
                 column: "OrdenId");
@@ -95,6 +84,9 @@ namespace OrdenesCompras.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Cliente");
+
+            migrationBuilder.DropTable(
                 name: "OrdenDetalles");
 
             migrationBuilder.DropTable(
@@ -102,9 +94,6 @@ namespace OrdenesCompras.Migrations
 
             migrationBuilder.DropTable(
                 name: "Orden");
-
-            migrationBuilder.DropTable(
-                name: "Cliente");
         }
     }
 }
