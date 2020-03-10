@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrdenesCompras.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta Ordenes" Height="450" Width="800">
+        Title="Consulta Ordenes" Height="450" Width="810">
     <Grid>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition/>
@@ -16,16 +17,38 @@
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        <StackPanel Grid.Column="1">
-            <Label Content="Desde"/>
-            <DatePicker x:Name="DesdeDatePicker" Width="181" Margin="0,0,625,0"/>
+
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <Label Content="Desde"  />
+            <DatePicker x:Name="DesdeDatePicker" Width="165" Margin="0,0,640,0" />
         </StackPanel>
-        
-        <StackPanel Grid.Column="2" Width="200">
-            <Label Content="Hasta"/>
-            <DatePicker x:Name="HastaDatePicker" Width="144" Margin="0,0,55,0"/>
+
+        <StackPanel Grid.Column="2" >
+            <Label x:Name="HastaLabel" Content="Hasta" Width="435"/>
+            <DatePicker x:Name="HastaDatePicker" Width="177" Margin="0,0,250,0" />
         </StackPanel>
+
+        <StackPanel Grid.Column="3" >
+            <Label Content="Filtro " Width="100" Margin="145,0,60,0"/>
+            <ComboBox x:Name="FiltroComboBox" Width="156" Margin="330,0,180,0" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="4" >
+            <Label Content="Criterio" Width="150" Margin="510,0,0,0" />
+            <TextBox x:Name="CriterioTextBox" Width="150" Margin="520,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="5" >
+            <Button x:Name="BucarButton" Width="59" Height="50" Content="Buscar" Margin="745,0,0,0" Click="BucarButton_Click"/>
+        </StackPanel>
+        <DataGrid x:Name="ConsultarDataGrid" Grid.Column="1" Grid.Row="1"/>
+
+
+
+
+
+
+
 
     </Grid>
 </Window>
